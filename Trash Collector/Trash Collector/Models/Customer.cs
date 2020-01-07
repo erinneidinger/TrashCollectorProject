@@ -19,7 +19,7 @@ namespace Trash_Collector.Models
         public string State { get; set; }
         public int ZipCode { get; set; }
         public DateTime ExtraPickUpDate { get; set; }
-        public string Balance { get; set; }
+        public double Balance { get; set; }
         public DateTime SuspendedStart { get; set; }
         public DateTime SuspectedEnd { get; set; }
         public string PickupConfirmation { get; set; }
