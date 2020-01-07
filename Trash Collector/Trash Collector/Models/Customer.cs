@@ -13,7 +13,7 @@ namespace Trash_Collector.Models
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string PickUpDay { get; set; }
+        public DayOfWeek PickUpDay { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }
