@@ -11,21 +11,22 @@ namespace Trash_Collector.Migrations
                 "dbo.Customers",
                 c => new
                     {
-                        PickUpDay = c.String(nullable: false, maxLength: 128),
+                        CustomerId = c.Int(nullable: false, identity: true),
                         FirstName = c.String(),
                         LastName = c.String(),
+                        PickUpDay = c.String(),
                         StreetAddress = c.String(),
                         City = c.String(),
                         State = c.String(),
                         ZipCode = c.Int(nullable: false),
                         ExtraPickUpDate = c.DateTime(nullable: false),
-                        Balance = c.String(),
+                        Balance = c.Double(nullable: false),
                         SuspendedStart = c.DateTime(nullable: false),
                         SuspectedEnd = c.DateTime(nullable: false),
                         PickupConfirmation = c.String(),
                         ApplicationId = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.PickUpDay)
+                .PrimaryKey(t => t.CustomerId)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationId)
                 .Index(t => t.ApplicationId);
             
@@ -91,12 +92,13 @@ namespace Trash_Collector.Migrations
                 "dbo.Employees",
                 c => new
                     {
-                        FirstName = c.String(nullable: false, maxLength: 128),
+                        EmployeeId = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(),
                         LastName = c.String(),
                         ZipCode = c.Int(nullable: false),
                         ApplicationID = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.FirstName)
+                .PrimaryKey(t => t.EmployeeId)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationID)
                 .Index(t => t.ApplicationID);
             

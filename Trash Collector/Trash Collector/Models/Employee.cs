@@ -10,7 +10,7 @@ namespace Trash_Collector.Models
     public class Employee
     {
         [Key]
-        public int id { get; set; }
+        public int EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int ZipCode { get; set; }
@@ -18,5 +18,6 @@ namespace Trash_Collector.Models
         [ForeignKey("ApplicationUser")]
         public string ApplicationID { get; set; }
         public ApplicationUser ApplicationUser {get; set;}
+        public IEnumerable<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

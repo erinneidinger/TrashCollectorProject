@@ -168,6 +168,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -175,21 +177,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001062201584_InitialMigration.cs" />
-    <Compile Include="Migrations\202001062201584_InitialMigration.Designer.cs">
-      <DependentUpon>202001062201584_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202001071939114_InitialMigration.cs" />
+    <Compile Include="Migrations\202001071939114_InitialMigration.Designer.cs">
+      <DependentUpon>202001071939114_InitialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001062209358_UpdateMigration.cs" />
-    <Compile Include="Migrations\202001062209358_UpdateMigration.Designer.cs">
-      <DependentUpon>202001062209358_UpdateMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001071429374_UpdatedRecentMigration.cs" />
-    <Compile Include="Migrations\202001071429374_UpdatedRecentMigration.Designer.cs">
-      <DependentUpon>202001071429374_UpdatedRecentMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001071615237_RecentMigration.cs" />
-    <Compile Include="Migrations\202001071615237_RecentMigration.Designer.cs">
-      <DependentUpon>202001071615237_RecentMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202001072033512_TwoThirtyPmMigration.cs" />
+    <Compile Include="Migrations\202001072033512_TwoThirtyPmMigration.Designer.cs">
+      <DependentUpon>202001072033512_TwoThirtyPmMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -258,6 +252,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\AddRole.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,17 +272,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001062201584_InitialMigration.resx">
-      <DependentUpon>202001062201584_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001071939114_InitialMigration.resx">
+      <DependentUpon>202001071939114_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001062209358_UpdateMigration.resx">
-      <DependentUpon>202001062209358_UpdateMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001071429374_UpdatedRecentMigration.resx">
-      <DependentUpon>202001071429374_UpdatedRecentMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001071615237_RecentMigration.resx">
-      <DependentUpon>202001071615237_RecentMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001072033512_TwoThirtyPmMigration.resx">
+      <DependentUpon>202001072033512_TwoThirtyPmMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

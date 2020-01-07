@@ -10,7 +10,7 @@ namespace Trash_Collector.Models
     public class Customer
     {
         [Key]
-        public int id { get; set; }
+        public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PickUpDay { get; set; }
@@ -27,5 +27,7 @@ namespace Trash_Collector.Models
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+
+        public IEnumerable<ApplicationUser> ApplicationUsers {get; set;}
     }
 }
