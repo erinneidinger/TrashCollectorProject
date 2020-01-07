@@ -11,6 +11,7 @@ namespace Trash_Collector.Controllers
     public class CustomerController : Controller
     {
         public ApplicationDbContext context = new ApplicationDbContext();
+
         // GET: Customer
         public ActionResult Index()
         {
