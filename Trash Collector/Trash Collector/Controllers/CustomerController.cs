@@ -131,6 +131,12 @@ namespace Trash_Collector.Controllers
                 editedCustomer.SuspendedStart = customer.SuspendedStart;
                 editedCustomer.SuspectedEnd = customer.SuspectedEnd;
                 editedCustomer.ExtraPickUpDate = customer.ExtraPickUpDate;
+                //if (editedCustomer.ExtraPickUpDate != null)
+                //{
+
+                //}
+                editedCustomer.PickupConfirmation = customer.PickupConfirmation;
+      
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }

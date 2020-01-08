@@ -27,14 +27,14 @@ namespace Trash_Collector.Models
         public int ZipCode { get; set; }
         [Display(Name = "Extra Pickup Date")]
         public string ExtraPickUpDate { get; set; }
-     
+        [Display(Name= "Balance Due")]
         public double Balance { get; set; }
         [Display(Name = "Suspended Start")]
         public string SuspendedStart { get; set; }
         [Display(Name = "Suspected End")]
         public string SuspectedEnd { get; set; }
         [Display(Name = "Pickup Confirmation")]
-        public string PickupConfirmation { get; set; }
+        public bool PickupConfirmation { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
