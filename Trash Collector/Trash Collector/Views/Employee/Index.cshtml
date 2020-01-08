@@ -20,9 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ZipCode)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationID)
-        </th>
+       
         <th></th>
     </tr>
 
@@ -37,13 +35,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.ZipCode)
         </td>
+        
         <td>
-            @Html.DisplayFor(modelItem => item.ApplicationID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
+            @Html.ActionLink("Edit Employee", "Edit", new { id = item.EmployeeId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId }) |
+            @Html.ActionLink("List of Pickups", "ListOfPickups", "Customer", "Home", new { id = item.EmployeeId })
+
         </td>
     </tr>
 }

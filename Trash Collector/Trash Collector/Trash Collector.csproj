@@ -193,6 +193,14 @@
     <Compile Include="Migrations\202001081342304_RecentMigration.Designer.cs">
       <DependentUpon>202001081342304_RecentMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001081710465_ThirdDayMigration.cs" />
+    <Compile Include="Migrations\202001081710465_ThirdDayMigration.Designer.cs">
+      <DependentUpon>202001081710465_ThirdDayMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001081723281_DisplayNameMigration.cs" />
+    <Compile Include="Migrations\202001081723281_DisplayNameMigration.Designer.cs">
+      <DependentUpon>202001081723281_DisplayNameMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -270,6 +278,8 @@
     <Content Include="Views\Employee\Delete.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Customer\CreatePickup.cshtml" />
+    <Content Include="Views\Customer\ListOfPickups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +309,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001081342304_RecentMigration.resx">
       <DependentUpon>202001081342304_RecentMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001081710465_ThirdDayMigration.resx">
+      <DependentUpon>202001081710465_ThirdDayMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001081723281_DisplayNameMigration.resx">
+      <DependentUpon>202001081723281_DisplayNameMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

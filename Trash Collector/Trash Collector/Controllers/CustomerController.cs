@@ -19,6 +19,13 @@ namespace Trash_Collector.Controllers
             return View(allCustomers);
         }
 
+        //Get: Customer Lists (For Employees)
+        public ActionResult ListOfPickups()
+        {
+            List<Customer> allCustomers = context.Customers.ToList();
+            return View(allCustomers);
+        }
+
         // GET: Customer/Details/5
         public ActionResult Details(int id)
         {
@@ -105,5 +112,33 @@ namespace Trash_Collector.Controllers
                 return View();
             }
         }
+        // GET: Customer/Edit/5
+        public ActionResult CreatePickup(int id)
+        {
+            Customer foundCustomer = context.Customers.Where(a => a.CustomerId == id).FirstOrDefault();
+            return View(foundCustomer);
+        }
+
+        // POST: Customer/Edit/5
+        [HttpPost]
+        public ActionResult CreatePickup(int id, Customer customer)
+        {
+            try
+            {
+                // TODO: Add update logic here
+                Customer editedCustomer = context.Customers.Where(a => a.CustomerId == id).FirstOrDefault();
+                editedCustomer.PickUpDay = customer.PickUpDay;
+                editedCustomer.SuspendedStart = customer.SuspendedStart;
+                editedCustomer.SuspectedEnd = customer.SuspectedEnd;
+                editedCustomer.ExtraPickUpDate = customer.ExtraPickUpDate;
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }

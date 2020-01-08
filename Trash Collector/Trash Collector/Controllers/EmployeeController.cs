@@ -18,6 +18,13 @@ namespace Trash_Collector.Controllers
             return View(allEmployees);
         }
 
+        //// GET: List of Customers
+        //public ActionResult CustomerIndex()
+        //{
+        //    List<Customer> allCustomers = context.Customers.ToList();
+        //    return View(allCustomers);
+        //}
+
         // GET: Employee/Details/5
         public ActionResult Details(int id)
         {
