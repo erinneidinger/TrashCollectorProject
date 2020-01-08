@@ -24,9 +24,15 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
-                    <li>@Html.ActionLink("Employees", "Index", "Employee")</li>
-                    @*Add Customers,Employees*@
+                    @if (User.IsInRole("Employee") == true)
+                    {
+                        <li>@Html.ActionLink("Employees", "Index", "Employee")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

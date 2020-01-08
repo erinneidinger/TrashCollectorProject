@@ -22,9 +22,13 @@ namespace Trash_Collector.Controllers
         //Get: Customer Lists (For Employees)
         public ActionResult ListOfPickups()
         {
-            List<Customer> allCustomers = context.Customers.ToList();
+            var Id = User.Identity.GetUserId();
+            var foundEmployee = context.Employees.Where(a => a.ApplicationID == Id).FirstOrDefault();
+            List<Customer> allCustomers = context.Customers.Where(a => a.ZipCode == foundEmployee.ZipCode).ToList();
             return View(allCustomers);
         }
+
+        //Create View that will filter customers by days of the week using switch case
 
         // GET: Customer/Details/5
         public ActionResult Details(int id)
@@ -131,10 +135,6 @@ namespace Trash_Collector.Controllers
                 editedCustomer.SuspendedStart = customer.SuspendedStart;
                 editedCustomer.SuspectedEnd = customer.SuspectedEnd;
                 editedCustomer.ExtraPickUpDate = customer.ExtraPickUpDate;
-                //if (editedCustomer.ExtraPickUpDate != null)
-                //{
-
-                //}
                 editedCustomer.PickupConfirmation = customer.PickupConfirmation;
       
                 context.SaveChanges();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace Trash_Collector.Controllers
     {
         public ActionResult Index()
         {
+            var userId = User.Identity.GetUserId();
+            var result = User.IsInRole("Employee");
             return View();
         }
 
