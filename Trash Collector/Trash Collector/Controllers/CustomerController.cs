@@ -38,7 +38,32 @@ namespace Trash_Collector.Controllers
             return View(allCustomers);
         }
 
-        //Create View that will filter customers by days of the week using switch case
+        //Get: Customer/DayOfWeekFilter
+        public ActionResult DayOfWeek()
+        {
+            //Dropdown list in html file?
+             SelectList chosenDay = new SelectList(
+                new List<SelectListItem>
+                {
+                    new SelectListItem { Selected = true, Text = string.Empty, Value = "-1" },
+                    new SelectListItem { Selected = false, Text = "Sunday", Value = "Sunday" },
+                    new SelectListItem { Selected = false, Text = "Monday", Value = "Monday" },
+                    new SelectListItem { Selected = false, Text = "Tuesday", Value = "Tuesday"},
+                    new SelectListItem { Selected = false, Text = "Wednesday", Value = "Wednesday"},
+                    new SelectListItem { Selected = false, Text = "Thursday", Value = "Thursday" },
+                    new SelectListItem { Selected = false, Text = "Friday", Value = "Friday" },
+                }, "Value", "Text");
+
+            string weekDay = chosenDay.ToString();
+            
+            return RedirectToAction("DayOfWeekFilter");
+        }
+
+        public ActionResult DayOfWeekFilter(string weekDay)
+        {
+            List<Customer> filteredCustomers = context.Customers.Where(a => a.PickUpDay == weekDay || a.ExtraPickUpDate == weekDay).ToList();
+            return View(filteredCustomers);
+        }
 
         // GET: Customer/Details/5
         public ActionResult Details(int id)

@@ -25,7 +25,7 @@ namespace Trash_Collector.Models
         public string State { get; set; }
         [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
-        [Display(Name = "Extra Pickup Date")]
+        [Display(Name = "Extra Pickup Day")]
         public string ExtraPickUpDate { get; set; }
         [Display(Name= "Balance Due ($)")]
         public double Balance { get; set; }
