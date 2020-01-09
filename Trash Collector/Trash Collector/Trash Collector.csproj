@@ -205,6 +205,10 @@
     <Compile Include="Migrations\202001081741229_BoolMigration.Designer.cs">
       <DependentUpon>202001081741229_BoolMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001092027189_ThursdayMigration.cs" />
+    <Compile Include="Migrations\202001092027189_ThursdayMigration.Designer.cs">
+      <DependentUpon>202001092027189_ThursdayMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -324,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001081741229_BoolMigration.resx">
       <DependentUpon>202001081741229_BoolMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001092027189_ThursdayMigration.resx">
+      <DependentUpon>202001092027189_ThursdayMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

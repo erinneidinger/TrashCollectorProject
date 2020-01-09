@@ -108,11 +108,20 @@
 
     </dl>
 </div>
-<p>
-    @*Why is this not working for both details pages?*@
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
-    @Html.ActionLink("Back to List", "IndividualIndex")
-</p>
+<div>
+    @if (User.IsInRole("Customer") == true)
+    {
+    <div>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+        @Html.ActionLink("Back to List", "IndividualIndex")
+    </div>
+    }
+    else
+    {
+        @Html.ActionLink("Back to List", "ListOfPickups")
+    }
+
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

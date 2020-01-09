@@ -73,7 +73,16 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "IndividualIndex")
+    @if (User.IsInRole("Customer") == true)
+    {
+        
+        @Html.ActionLink("Back to List", "IndividualIndex")
+       
+    }
+    else
+    {
+        @Html.ActionLink("Back to List", "ListOfPickups")
+    }
 </div>
 
 @section Scripts {

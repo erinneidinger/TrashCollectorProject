@@ -61,12 +61,20 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-default" />
+
+            @if (User.IsInRole("Customer")){
             @Html.ActionLink("Back to List", "IndividualIndex")
+            }
+            else{
+            @Html.ActionLink("Back to List", "ListOfPickups")
+            }
+
         </div>
     }
 </div>

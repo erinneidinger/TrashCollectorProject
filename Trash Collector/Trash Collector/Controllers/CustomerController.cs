@@ -30,9 +30,11 @@ namespace Trash_Collector.Controllers
         //Get: Customer Lists (For Employees)
         public ActionResult ListOfPickups()
         {
+            string dayOfTheWeek = DateTime.Now.DayOfWeek.ToString();
             var Id = User.Identity.GetUserId();
             var foundEmployee = context.Employees.Where(a => a.ApplicationID == Id).FirstOrDefault();
-            List<Customer> allCustomers = context.Customers.Where(a => a.ZipCode == foundEmployee.ZipCode).ToList();
+            List<Customer> allCustomers = context.Customers.Where(a => a.ZipCode == foundEmployee.ZipCode && a.PickUpDay == dayOfTheWeek || a.ExtraPickUpDate == dayOfTheWeek).ToList();
+
             return View(allCustomers);
         }
 
@@ -142,11 +144,33 @@ namespace Trash_Collector.Controllers
                 editedCustomer.PickUpDay = customer.PickUpDay;
                 editedCustomer.SuspendedStart = customer.SuspendedStart;
                 editedCustomer.SuspectedEnd = customer.SuspectedEnd;
-                editedCustomer.ExtraPickUpDate = customer.ExtraPickUpDate;
-                editedCustomer.PickupConfirmation = customer.PickupConfirmation;
+
+               if(User.IsInRole("Customer"))
+                if (editedCustomer.ExtraPickUpDate == null)
+                {
+                    editedCustomer.ExtraPickUpDate = customer.ExtraPickUpDate;
+                }
+           
+                if (User.IsInRole("Employee"))
+                {
+                    editedCustomer.Balance = customer.Balance;
+                    editedCustomer.PickupConfirmation = customer.PickupConfirmation;
+                    if(editedCustomer.PickupConfirmation == true)
+                    {
+                        editedCustomer.Balance += 10.00;
+                    }
+                }
       
                 context.SaveChanges();
-                return RedirectToAction("IndividualIndex", "Customer");
+
+                if (User.IsInRole("Employee"))
+                {
+                    return RedirectToAction("ListOfPickups");
+                }
+                else
+                {
+                    return RedirectToAction("IndividualIndex");
+                }
             }
             catch
             {
