@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<Trash_Collector.Models.Employee>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "IndividualIndex";
 }
 
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
-    
 </p>
 <table class="table">
     <tr>
@@ -21,7 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ZipCode)
         </th>
-       
+        
         <th></th>
     </tr>
 
@@ -36,13 +35,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.ZipCode)
         </td>
-        
+       
         <td>
-            @Html.ActionLink("Edit Employee", "Edit", new { id = item.EmployeeId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId }) |
-            @Html.ActionLink("List of Pickups", "ListOfPickups", "Customer", "Home", new { id = item.EmployeeId })
-
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
         </td>
     </tr>
 }

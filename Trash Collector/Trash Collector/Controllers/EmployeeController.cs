@@ -18,6 +18,14 @@ namespace Trash_Collector.Controllers
             return View(allEmployees);
         }
 
+        public ActionResult IndividualIndex()
+        {
+            var Id = User.Identity.GetUserId();
+            var foundEmployee = context.Employees.Where(a => a.ApplicationID== Id).FirstOrDefault();
+            List<Employee> oneEmployee = context.Employees.Where(a => a.EmployeeId == foundEmployee.EmployeeId).ToList();
+            return View(oneEmployee);
+        }
+
         // GET: Employee/Details/5
         public ActionResult Details(int id)
         {
@@ -42,7 +50,7 @@ namespace Trash_Collector.Controllers
                 employee.ApplicationID = User.Identity.GetUserId();
                 context.Employees.Add(employee);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListOfPickups");
             }
             catch
             {

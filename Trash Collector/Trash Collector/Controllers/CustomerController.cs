@@ -19,6 +19,14 @@ namespace Trash_Collector.Controllers
             return View(allCustomers);
         }
 
+        public ActionResult IndividualIndex()
+        {
+            var Id = User.Identity.GetUserId();
+            var foundCustomer = context.Customers.Where(a => a.ApplicationId== Id).FirstOrDefault();
+            List<Customer> oneCustomer = context.Customers.Where(a => a.CustomerId == foundCustomer.CustomerId).ToList();
+            return View(oneCustomer);
+        }
+
         //Get: Customer Lists (For Employees)
         public ActionResult ListOfPickups()
         {
@@ -54,7 +62,7 @@ namespace Trash_Collector.Controllers
                 customer.ApplicationId = User.Identity.GetUserId();
                 context.Customers.Add(customer);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CreatePickup");
             }
             catch
             {
@@ -84,7 +92,7 @@ namespace Trash_Collector.Controllers
                 editedCustomer.State = customer.State;
                 editedCustomer.ZipCode = customer.ZipCode;
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndividualIndex", "Customer");
             }
             catch
             {
@@ -109,7 +117,7 @@ namespace Trash_Collector.Controllers
                 Customer foundCustomer = context.Customers.Find(id);
                 context.Customers.Remove(foundCustomer);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndividualIndex", "Customer");
             }
             catch
             {
@@ -138,7 +146,7 @@ namespace Trash_Collector.Controllers
                 editedCustomer.PickupConfirmation = customer.PickupConfirmation;
       
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndividualIndex", "Customer");
             }
             catch
             {
