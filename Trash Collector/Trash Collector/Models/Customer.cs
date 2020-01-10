@@ -16,7 +16,7 @@ namespace Trash_Collector.Models
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Display(Name = "Pickup Time")]
+        [Display(Name = "Pickup Day")]
         public string PickUpDay { get; set; }
         [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
@@ -41,5 +41,7 @@ namespace Trash_Collector.Models
         public ApplicationUser ApplicationUser { get; set; }
 
         public IEnumerable<ApplicationUser> ApplicationUsers {get; set;}
+
+        
     }
 }

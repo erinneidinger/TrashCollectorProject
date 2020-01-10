@@ -71,11 +71,20 @@
 }
 
 <div>
-    @if(User.IsInRole("Customer")){
-    @Html.ActionLink("Back to List", "IndividualIndex")
+   
+    @if (User.IsInRole("Customer") == true)
+    {
+
+        @Html.ActionLink("Back to List", "IndividualIndex", "Customer")
+
     }
-    else{
-    @Html.ActionLink("Back to List", "ListOfPickups")
+    else if (User.IsInRole("Employee") == true)
+    {
+        @Html.ActionLink("Back to List", "ListOfPickups")
+    }
+    else
+    {
+        @Html.ActionLink("Back to List", "Login", "Account")
     }
 
 </div>

@@ -32,38 +32,26 @@ namespace Trash_Collector.Controllers
         {
             string dayOfTheWeek = DateTime.Now.DayOfWeek.ToString();
             var Id = User.Identity.GetUserId();
+            FilterViewModel filterView = new FilterViewModel();
+            filterView.DaysOfTheWeek = new SelectList(new List<string> { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" });
             var foundEmployee = context.Employees.Where(a => a.ApplicationID == Id).FirstOrDefault();
-            List<Customer> allCustomers = context.Customers.Where(a => a.ZipCode == foundEmployee.ZipCode && a.PickUpDay == dayOfTheWeek || a.ExtraPickUpDate == dayOfTheWeek).ToList();
+            filterView.Customers = context.Customers.Where(a => a.ZipCode == foundEmployee.ZipCode && a.PickUpDay == dayOfTheWeek || a.ExtraPickUpDate == dayOfTheWeek).ToList();
 
-            return View(allCustomers);
+            return View(filterView);
         }
 
-        //Get: Customer/DayOfWeekFilter
-        public ActionResult DayOfWeek()
+        [HttpPost]
+        public ActionResult ListOfPickups(FilterViewModel Filterview)
         {
-            //Dropdown list in html file?
-             SelectList chosenDay = new SelectList(
-                new List<SelectListItem>
-                {
-                    new SelectListItem { Selected = true, Text = string.Empty, Value = "-1" },
-                    new SelectListItem { Selected = false, Text = "Sunday", Value = "Sunday" },
-                    new SelectListItem { Selected = false, Text = "Monday", Value = "Monday" },
-                    new SelectListItem { Selected = false, Text = "Tuesday", Value = "Tuesday"},
-                    new SelectListItem { Selected = false, Text = "Wednesday", Value = "Wednesday"},
-                    new SelectListItem { Selected = false, Text = "Thursday", Value = "Thursday" },
-                    new SelectListItem { Selected = false, Text = "Friday", Value = "Friday" },
-                }, "Value", "Text");
+            FilterViewModel filterView = new FilterViewModel();
+            filterView.DaysOfTheWeek = new SelectList(new List<string> { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" });            
+            string weekDay = Filterview.WeekDay;
+            var Id = User.Identity.GetUserId();
+            var foundEmployee = context.Employees.Where(a => a.ApplicationID == Id).FirstOrDefault();
+            filterView.Customers = context.Customers.Where(a => a.ZipCode == foundEmployee.ZipCode && a.PickUpDay == weekDay || a.ExtraPickUpDate == weekDay).ToList();
 
-            string weekDay = chosenDay.ToString();
-            
-            return RedirectToAction("DayOfWeekFilter");
-        }
-
-        public ActionResult DayOfWeekFilter(string weekDay)
-        {
-            List<Customer> filteredCustomers = context.Customers.Where(a => a.PickUpDay == weekDay || a.ExtraPickUpDate == weekDay).ToList();
-            return View(filteredCustomers);
-        }
+            return View(filterView);
+        } 
 
         // GET: Customer/Details/5
         public ActionResult Details(int id)
@@ -89,7 +77,7 @@ namespace Trash_Collector.Controllers
                 customer.ApplicationId = User.Identity.GetUserId();
                 context.Customers.Add(customer);
                 context.SaveChanges();
-                return RedirectToAction("CreatePickup");
+                return RedirectToAction("IndividualIndex");
             }
             catch
             {
@@ -119,7 +107,7 @@ namespace Trash_Collector.Controllers
                 editedCustomer.State = customer.State;
                 editedCustomer.ZipCode = customer.ZipCode;
                 context.SaveChanges();
-                return RedirectToAction("IndividualIndex", "Customer");
+                return View("IndividualIndex", "Customer");
             }
             catch
             {

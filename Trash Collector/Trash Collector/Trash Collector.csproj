@@ -209,10 +209,23 @@
     <Compile Include="Migrations\202001092027189_ThursdayMigration.Designer.cs">
       <DependentUpon>202001092027189_ThursdayMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001101447034_AddedDaysOfWeekMigration.cs" />
+    <Compile Include="Migrations\202001101447034_AddedDaysOfWeekMigration.Designer.cs">
+      <DependentUpon>202001101447034_AddedDaysOfWeekMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001101542481_MovedDaysOfWeekToEmployeeMigration.cs" />
+    <Compile Include="Migrations\202001101542481_MovedDaysOfWeekToEmployeeMigration.Designer.cs">
+      <DependentUpon>202001101542481_MovedDaysOfWeekToEmployeeMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001102029467_CreatedFilterModelMigration.cs" />
+    <Compile Include="Migrations\202001102029467_CreatedFilterModelMigration.Designer.cs">
+      <DependentUpon>202001102029467_CreatedFilterModelMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\FilterViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,6 +253,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Employee\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -290,7 +304,6 @@
     <Content Include="Views\Customer\ListOfPickups.cshtml" />
     <Content Include="Views\Customer\IndividualIndex.cshtml" />
     <Content Include="Views\Employee\IndividualIndex.cshtml" />
-    <Content Include="Views\Customer\DayOfWeekFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,6 +345,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001092027189_ThursdayMigration.resx">
       <DependentUpon>202001092027189_ThursdayMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001101447034_AddedDaysOfWeekMigration.resx">
+      <DependentUpon>202001101447034_AddedDaysOfWeekMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001101542481_MovedDaysOfWeekToEmployeeMigration.resx">
+      <DependentUpon>202001101542481_MovedDaysOfWeekToEmployeeMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001102029467_CreatedFilterModelMigration.resx">
+      <DependentUpon>202001102029467_CreatedFilterModelMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -26,6 +26,9 @@ namespace Trash_Collector.Controllers
             return View(oneEmployee);
         }
 
+
+        
+
         // GET: Employee/Details/5
         public ActionResult Details(int id)
         {

@@ -23,5 +23,8 @@ namespace Trash_Collector.Models
         public string ApplicationID { get; set; }
         public ApplicationUser ApplicationUser {get; set;}
         public IEnumerable<ApplicationUser> ApplicationUsers { get; set; }
+
+        [NotMapped]
+        public string DaysOfTheWeek { get; set; }
     }
 }
