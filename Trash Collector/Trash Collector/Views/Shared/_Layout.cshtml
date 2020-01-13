@@ -26,9 +26,13 @@
                         <li>@Html.ActionLink("Home", "ListOfPickups", "Customer")</li>
                         <li>@Html.ActionLink("Employee", "IndividualIndex", "Employee")</li>
                     }
-                    else
+                    else if (User.IsInRole("Customer") == true)
                     {
                         <li>@Html.ActionLink("Home", "IndividualIndex", "Customer")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Home", "Login", "Account")</li>
                     }
 
                 </ul>
