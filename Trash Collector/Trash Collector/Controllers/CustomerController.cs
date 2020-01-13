@@ -107,7 +107,7 @@ namespace Trash_Collector.Controllers
                 editedCustomer.State = customer.State;
                 editedCustomer.ZipCode = customer.ZipCode;
                 context.SaveChanges();
-                return View("IndividualIndex", "Customer");
+                return RedirectToAction("IndividualIndex");
             }
             catch
             {

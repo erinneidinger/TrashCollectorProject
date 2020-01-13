@@ -73,12 +73,8 @@
         @if (User.IsInRole("Customer") == true)
         {
 
-            @Html.ActionLink("Back to List", "IndividualIndex", "Customer")
+            @Html.ActionLink("Back to List", "IndividualIndex")
 
-        }
-        else if (User.IsInRole("Employee") == true)
-        {
-            @Html.ActionLink("Back to List", "ListOfPickups")
         }
         else
         {
