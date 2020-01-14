@@ -303,6 +303,7 @@
     <Content Include="Views\Customer\ListOfPickups.cshtml" />
     <Content Include="Views\Customer\IndividualIndex.cshtml" />
     <Content Include="Views\Employee\IndividualIndex.cshtml" />
+    <Content Include="Views\Employee\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

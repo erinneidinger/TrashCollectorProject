@@ -21,13 +21,12 @@ namespace Trash_Collector.Controllers
         public ActionResult IndividualIndex()
         {
             var Id = User.Identity.GetUserId();
-            var foundEmployee = context.Employees.Where(a => a.ApplicationID== Id).FirstOrDefault();
+            var foundEmployee = context.Employees.Where(a => a.ApplicationID == Id).FirstOrDefault();
             List<Employee> oneEmployee = context.Employees.Where(a => a.EmployeeId == foundEmployee.EmployeeId).ToList();
             return View(oneEmployee);
         }
 
 
-        
 
         // GET: Employee/Details/5
         public ActionResult Details(int id)
@@ -53,7 +52,7 @@ namespace Trash_Collector.Controllers
                 employee.ApplicationID = User.Identity.GetUserId();
                 context.Employees.Add(employee);
                 context.SaveChanges();
-                return RedirectToAction("ListOfPickups");
+                return RedirectToAction("ListOfPickups", "Customer");
             }
             catch
             {
@@ -80,7 +79,7 @@ namespace Trash_Collector.Controllers
                 editedEmployee.LastName = employee.LastName;
                 editedEmployee.ZipCode = employee.ZipCode;
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndividualIndex");
             }
             catch
             {
@@ -105,7 +104,7 @@ namespace Trash_Collector.Controllers
                 Employee foundEmployee = context.Employees.Find(id);
                 context.Employees.Remove(foundEmployee);
                 context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndividualIndex");
             }
             catch
             {
